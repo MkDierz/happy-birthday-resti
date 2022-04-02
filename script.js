@@ -242,15 +242,18 @@ SOUNDS.TUNE.onended = SOUNDS.MATCH.onended = () => MASTER_TL.play();
 MASTER_TL.addPause('FLAME_ON', () => SOUNDS.MATCH.play());
 MASTER_TL.addPause('LIGHTS_OUT', () => SOUNDS.TUNE.play());
 BTN.addEventListener('click', () => {
+  toggleAudio();
   BTN.setAttribute('disabled', true);
   MASTER_TL.restart();
 });
 
-SOUNDS.TUNE.muted = SOUNDS.MATCH.muted = SOUNDS.HORN.muted = SOUNDS.POP.muted = SOUNDS.CHEER.muted = SOUNDS.BLOW.muted = SOUNDS.ON.muted = true;
+SOUNDS.TUNE.muted = SOUNDS.MATCH.muted = SOUNDS.HORN.muted = SOUNDS.POP.muted = SOUNDS.CHEER.muted = SOUNDS.BLOW.muted = SOUNDS.ON.muted = false;
 
 const toggleAudio = () => {
+  console.log('here');
   SOUNDS.TUNE.muted = SOUNDS.MATCH.muted = SOUNDS.POP.muted = SOUNDS.HORN.muted = SOUNDS.CHEER.muted = SOUNDS.BLOW.muted = SOUNDS.ON.muted = !SOUNDS.
   BLOW.muted;
 };
 
 document.querySelector('#volume').addEventListener('input', toggleAudio);
+document.onload = toggleAudio();

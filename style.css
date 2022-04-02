@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+body{
+  zoom: 100%;
+}
 :root {
   --tongue: #c12115;
   --pupil: #fff;
